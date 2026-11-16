@@ -1,5 +1,5 @@
 Ticket Triage: an IT help desk game in R
-Authors: <Student 1 name>, <Student 2 name>
+Authors: Jack Joaquin, Imran Pasha
 Course: MATH 356 Statistical Programming in R, Fall 2026
 
 DESCRIPTION
@@ -11,8 +11,6 @@ This project combines two directions:
 - Option 1 (two functions): generate_tickets() and prioritize_tickets()
 - Option 2 (game): Ticket Triage, built on those two functions
 
-REQUIRED PACKAGES
-None (base R only).
 
 HOW TO RUN
 1. Open R (or RStudio) and set the working directory to this folder.
@@ -22,8 +20,6 @@ HOW TO RUN
      play_triage()
 3. Scripted example (no input needed, same output every time):
      source("demo.R")
-4. Tests:
-     source("tests.R")
 
 ACTIONS
 <ticket ID>   work on that ticket (e.g., 3 or "work 3"); the clock advances by its effort
@@ -44,12 +40,8 @@ generate_tickets(n, seed)       fake ticket queue: id, category, priority, effor
 prioritize_tickets(tickets, now) ranks open tickets by urgency = weight / minutes left;
                                  tickets that can no longer be saved are listed last
 
-STATISTICS EXTRA
-compare_strategies() plays the same random ticket queues using three strategies
-(priority, earliest deadline, random); plot_strategies() shows the score distributions.
 
 FILES
 R/tickets.R        generate_tickets, prioritize_tickets, shared settings
 R/triage_game.R    game state, turns, play loop, strategies, simulation
 demo.R             scripted example plus strategy comparison
-tests.R            checks for the helper functions and scoring
