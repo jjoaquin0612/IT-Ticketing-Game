@@ -8,16 +8,16 @@ You are the IT help desk. A queue of tickets is waiting, and each has an effort
 tickets before their deadlines to earn points; late tickets cost points.
 
 This project combines two directions:
-- Option 1 (two functions): generate_tickets() and prioritize_tickets()
-- Option 2 (game): Ticket Triage, built on those two functions
+- creating two functions called generate_tickets() and prioritize_tickets()
+- Ticket Triage game, built on those two functions
 
 
 HOW TO RUN
 1. Open R (or RStudio) and set the working directory to this folder.
-2. Playable version (interactive R session only):
+2. Playable version):
      source("R/tickets.R")
      source("R/triage_game.R")
-     play_triage()
+     play_triage() in console
 3. Scripted example (no input needed, same output every time):
      source("demo.R")
 
@@ -35,7 +35,7 @@ RULES AND SCORING
 - Perfect shift (no breaches): +20 bonus.
 - Invalid actions are rejected and do not change the game.
 
-HELPER FUNCTIONS (Option 1)
+HELPER FUNCTIONS
 generate_tickets(n, seed)       fake ticket queue: id, category, priority, effort, deadline
 prioritize_tickets(tickets, now) ranks open tickets by urgency = weight / minutes left;
                                  tickets that can no longer be saved are listed last
