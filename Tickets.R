@@ -1,5 +1,4 @@
-# tickets.R
-# Two helper functions for IT ticketing (Option 1), used by the triage game (Option 2):
+# Two helper functions for IT ticketing, used by the triage game:
 #   generate_tickets()    - make a realistic fake ticket queue
 #   prioritize_tickets()  - rank open tickets by urgency
 
@@ -12,15 +11,8 @@ sla_minutes       <- c(Low = 180, Medium = 120, High = 75, Critical = 45) # base
 ticket_categories <- c("Password reset", "Network", "Hardware",
                        "Software install", "Email", "Printer")
 
-# ---- Function 1: generate_tickets -------------------------------------------
+# Function 1: generate_tickets
 
-# Returns a data frame with one row per ticket:
-#   id        - 1..n
-#   category  - type of issue
-#   priority  - Low / Medium / High / Critical
-#   effort    - minutes needed to resolve the ticket
-#   deadline  - SLA deadline, in minutes from the start of the shift
-#   status    - "open" (the game later changes this to "resolved" or "breached")
 generate_tickets <- function(n = 8, seed = NULL) {
   stopifnot(is.numeric(n), length(n) == 1, n >= 1)
   if (!is.null(seed)) set.seed(seed)
@@ -45,7 +37,7 @@ generate_tickets <- function(n = 8, seed = NULL) {
   )
 }
 
-# ---- Function 2: prioritize_tickets -----------------------------------------
+# Function 2: prioritize_tickets
 
 # Ranks the OPEN tickets, most urgent first.
 #   urgency = priority weight / minutes left until the deadline

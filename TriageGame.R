@@ -1,9 +1,3 @@
-# triage_game.R
-# Ticket Triage: you are the IT help desk. A queue of tickets is waiting, each with
-# an effort (minutes to fix) and an SLA deadline. Choose which ticket to work on;
-# the clock advances by that ticket's effort. Resolve tickets before their
-# deadlines to earn points; late tickets cost you points.
-#
 # Game state is a list with:
 #   tickets  - data frame from generate_tickets(); status is open/resolved/breached
 #   clock    - minutes elapsed
@@ -14,7 +8,7 @@
 
 # Requires R/tickets.R to be sourced first (generate_tickets, prioritize_tickets).
 
-# ---- Setup ------------------------------------------------------------------
+#Setup
 
 new_triage_game <- function(n_tickets = 8, seed = NULL, tickets = NULL) {
   if (is.null(tickets)) tickets <- generate_tickets(n_tickets, seed)
@@ -28,7 +22,7 @@ new_triage_game <- function(n_tickets = 8, seed = NULL, tickets = NULL) {
   )
 }
 
-# ---- One turn ---------------------------------------------------------------
+# One turn
 
 # Actions:
 #   a ticket ID (e.g. "3" or "work 3") - work on that ticket
@@ -84,7 +78,7 @@ take_triage_turn <- function(state, action) {
   state
 }
 
-# ---- Display ----------------------------------------------------------------
+#Display
 
 print_queue <- function(state) {
   cat(sprintf("\nClock: %d min | Score: %d | Breaches: %d\n",
@@ -101,7 +95,7 @@ print_queue <- function(state) {
   invisible(state)
 }
 
-# ---- Game loop --------------------------------------------------------------
+# Game loop
 
 # Interactive: play_triage()
 # Scripted:    play_triage(actions = c("hint", "3", "1", "2"), seed = 356)
