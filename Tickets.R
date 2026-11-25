@@ -2,7 +2,7 @@
 #   generate_tickets()    - make a realistic fake ticket queue
 #   prioritize_tickets()  - rank open tickets by urgency
 
-# ---- Settings shared by the whole project -----------------------------------
+#Settings shared by the whole project
 
 priority_levels   <- c("Low", "Medium", "High", "Critical")
 priority_points   <- c(Low = 10, Medium = 20, High = 30, Critical = 50)  # game points
